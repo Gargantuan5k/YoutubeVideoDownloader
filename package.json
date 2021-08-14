@@ -4,7 +4,7 @@
   "description": "A Web tool to download youtube videos in MP4 format",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node code.js"
   },
   "repository": {
     "type": "git",

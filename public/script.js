@@ -1,4 +1,4 @@
-const host = "http://127.0.0.1:5000/"   //TODO: Change
+const host = "https://youtubevid-downloader.herokuapp.com/"   //TODO: Change
 const urlBox = document.querySelector("#videoURL");
 const getVidBtn = document.querySelector("#get-video-info-btn");
 const defaultPlaceholder = "https://www.youtube.com/watch?v=video_id_here"
