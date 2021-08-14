@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Youtube Video Downloader</title>
+</head>
+
+<body>
+    <div class="header">
+        YouTube Video Downloader
+    </div>
+    <div class="form-bg">
+        <div class="form">
+            <div class="form-element">
+                <div class="label-wrapper">
+                    <label for="videoURL">Enter the link of the video to download&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                <input type="text" id="videoURL" placeholder="https://www.youtube.com/watch?v=video_id_here">
+            </div>
+            <div class="form-element">
+                <button id="get-video-info-btn" class="glow-on-hover">GET VIDEO</button>
+            </div>
+        </div>
+    </div>
+    <div class="video-data">
+        <div class="data">
+            <div class="thumbnail">
+                <img>
+            </div>
+            <div class="info">
+                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis possimus cumque natus molestias
+                    magnam dolorum cum quisquam.
+                </p>
+            </div>
+        </div>
+        <div class="controls">
+            <input type="hidden" id="video-url">
+            <select id="download-options"></select>
+            <button id="download-btn" class="glow-on-hover">DOWNLOAD</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <footer>Made with ❤️ by <a href="https://github.com/Gargantuan5k" class="lnk" target="_blank">Gargantuan5K</a></footer>
+</body>
+
+</html>

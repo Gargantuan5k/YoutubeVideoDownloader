@@ -1,0 +1,29 @@
+{
+  "name": "youtubevideodownloader",
+  "version": "1.0.0",
+  "description": "A Web tool to download youtube videos in MP4 format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gargantuan5k/YoutubeVideoDownloader.git"
+  },
+  "keywords": [
+    "youtube",
+    "video",
+    "webapp",
+    "download"
+  ],
+  "author": "Siddharth Vivek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gargantuan5k/YoutubeVideoDownloader/issues"
+  },
+  "homepage": "https://github.com/Gargantuan5k/YoutubeVideoDownloader#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ytdl-core": "^4.9.1"
+  }
+}
