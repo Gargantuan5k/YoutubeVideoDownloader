@@ -1,12 +1,8 @@
-# YouTube Video Downloader<hr>
+# YouTube Video Downloader
 
 ## Introduction
 
 > A web-application to download videos from YouTube! You can download a video in .mp4 format in all available qualities :)
-
-## Code Samples
-
-
 
 ## Installation
 
