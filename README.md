@@ -25,8 +25,12 @@ Edit line 1: change the `host` variable to
 ```js
 "http://127.0.0.1:5000/"
 ```
+(NOTE: The trailing / is important) <br /><br />
 You can replace `http://127.0.0.1:5000` with the IP and port of a different server if you choose.
-(NOTE: The trailing / is important) <br />
+<strong>If you are using a different port instead of `5000`, you will have to edit the last line in the code.js file, replace `app.listen(process.env.PORT || 5000); with`</strong>
+```js
+app.listen(process.env.PORT || YourPortNumberHere);
+```
 Save and exit the text editor, back to the terminal. <br />
 Type the following command in the terminal: (Install nodeJS first if you don't have it already)
 ```shell
