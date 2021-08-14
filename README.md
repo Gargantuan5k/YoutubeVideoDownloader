@@ -9,8 +9,8 @@
 <strong>The app is already <a href="https://youtubevid-downloader.herokuapp.com" target="_blank">deployed on Heroku</a>. To run it on localhost on your own device, or on a different server, follow these instructions:<br /></strong>
 
 Requirements:<br />
-* Git
-* Node.js
+* <a href="https://git-scm.com/downloads" target="_blank">Git</a>
+* <a href="https://nodejs.org/en/download/" target="_blank">Node.js</a>
 
 Open your terminal and type in the following commands: 
 ```shell
