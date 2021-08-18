@@ -1,10 +1,21 @@
-const host = "https://youtubevid-downloader.herokuapp.com/"   //TODO: Change
+const host = "https://youtubevid-downloader.herokuapp.com/"   //* Heroku hostname
+// const host = "http://127.0.0.1:5000/" //* DEBUG Localhost hostname
 const urlBox = document.querySelector("#videoURL");
 const getVidBtn = document.querySelector("#get-video-info-btn");
 const defaultPlaceholder = "https://www.youtube.com/watch?v=video_id_here"
 
 getVidBtn.addEventListener("click", () => {
     let videoURL = urlBox.value.trim();
+    let regexp = /^[a-zA-Z0-9-_]{11}$/;
+    let watchID = videoURL.split("watch?v=").pop();
+
+    try {
+        new URL(videoURL);
+        let isValidURL = true;
+    } catch (e) {
+        console.error(e)
+        let isValidURL = false;
+    }
 
     if (videoURL.length == 0) {
         urlBox.style.color = "#ff0000";
@@ -13,7 +24,14 @@ getVidBtn.addEventListener("click", () => {
             urlBox.style.color = "#f5f5f5";
             urlBox.placeholder = defaultPlaceholder;
         });
-
+        return;
+    } else if (!watchID.match(regexp) || !isValidURL) {
+        urlBox.style.color = "#ff0000";
+        urlBox.placeholder = "Please enter a valid YouTube link";
+        urlBox.addEventListener("click", () => {
+            urlBox.style.color = "#f5f5f5";
+            urlBox.placeholder = defaultPlaceholder;
+        });
         return;
     }
 
@@ -38,13 +56,13 @@ getVidBtn.addEventListener("click", () => {
 
             html += `
             <option value="${data.formats[i].itag}" style='background:#111;color:#f5f5f5;'>
-                ${data.formats[i].container != null ? data.formats[i].container.toUpperCase() : data.formats[i].container} - ${data.formats[i].qualityLabel != null ? data.formats[i].qualityLabel.toUpperCase() : data.formats[i].qualityLabel} - ${data.formats[i].mimeType != null ? data.formats[i].mimeType.slice(0, 5).toUpperCase() : data.formats[i].mimeType}
+                ${data.formats[i].container != null ? data.formats[i].container.toUpperCase() : data.formats[i].container} - ${data.formats[i].qualityLabel != null ? data.formats[i].qualityLabel.toUpperCase() : "SOUND ONLY"} - ${data.formats[i].mimeType != null ? data.formats[i].mimeType.slice(0, 5).toUpperCase() : data.formats[i].mimeType}
             </option>
             `;
 
             detailsNodes.thumbnail.src = data.videoDetails.thumbnails[data.videoDetails.thumbnails.length - 1].url; // Get High Quality Thumbnail
             detailsNodes.title.innerText = data.videoDetails.title;
-            detailsNodes.description.innerText = "Description:\n\n" + data.videoDetails.description;
+            detailsNodes.description.innerText = data.videoDetails.description != null ? "Description:\n\n" + data.videoDetails.description : "Description:\n\n[NO DESCRIPTION]";
             detailsNodes.videoURL.value = videoURL;
             detailsNodes.downloadOptions.innerHTML = html;
 
@@ -54,16 +72,8 @@ getVidBtn.addEventListener("click", () => {
             });
         }
     }).catch((error) => {
-        alert("Something went wrong :(");
+        alert("Something went wrong :(\nCheck the Console for the error message and contact the website creator for assistance");
         console.error(error);
-
-        urlBox.value = "";
-        urlBox.style.color = "#ff0000";
-        urlBox.placeholder = "Something went wrong :(";
-        urlBox.addEventListener("click", () => {
-            urlBox.style.color = "#f5f5f5";
-            urlBox.placeholder = defaultPlaceholder;
-        });
     });
 });
 
