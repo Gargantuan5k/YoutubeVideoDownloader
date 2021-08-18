@@ -9,25 +9,9 @@ getVidBtn.addEventListener("click", () => {
     let regexp = /^[a-zA-Z0-9-_]{11}$/;
     let watchID = videoURL.split("watch?v=").pop();
 
-    try {
-        new URL(videoURL);
-        let isValidURL = true;
-    } catch (e) {
-        console.error(e)
-        let isValidURL = false;
-    }
-
     if (videoURL.length == 0) {
         urlBox.style.color = "#ff0000";
         urlBox.placeholder = "Please enter a link";
-        urlBox.addEventListener("click", () => {
-            urlBox.style.color = "#f5f5f5";
-            urlBox.placeholder = defaultPlaceholder;
-        });
-        return;
-    } else if (!watchID.match(regexp) || !isValidURL) {
-        urlBox.style.color = "#ff0000";
-        urlBox.placeholder = "Please enter a valid YouTube link";
         urlBox.addEventListener("click", () => {
             urlBox.style.color = "#f5f5f5";
             urlBox.placeholder = defaultPlaceholder;
