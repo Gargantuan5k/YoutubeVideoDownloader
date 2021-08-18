@@ -6,8 +6,6 @@ const defaultPlaceholder = "https://www.youtube.com/watch?v=video_id_here"
 
 getVidBtn.addEventListener("click", () => {
     let videoURL = urlBox.value.trim();
-    let regexp = /^[a-zA-Z0-9-_]{11}$/;
-    let watchID = videoURL.split("watch?v=").pop();
 
     if (videoURL.length == 0) {
         urlBox.style.color = "#ff0000";
@@ -17,6 +15,17 @@ getVidBtn.addEventListener("click", () => {
             urlBox.placeholder = defaultPlaceholder;
         });
         return;
+    }
+
+    if (videoURL.startsWith("www.youtube.com")) {
+        videoURL = "https://" + videoURL;
+        urlBox.value = videoURL;
+    } else if (videoURL.startsWith("youtube.com")) {
+        videoURL = "https://www." + videoURL;
+        urlBox.value = videoURL;
+    } else if (videoURL.startsWith("https://youtube.com")) {
+        videoURL = "https://www." + videoURL.substring(8);
+        urlBox.value = videoURL;
     }
 
     fetch(`${host}videoInfo?videoURL=${videoURL}`).then((res) => {
