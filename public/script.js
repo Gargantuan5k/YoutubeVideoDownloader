@@ -1,4 +1,5 @@
-const host = "https://youtubevid-downloader.herokuapp.com/"   //* Heroku hostname
+// const host = "https://youtubevid-downloader.herokuapp.com/"   //* Heroku hostname
+const host = "https://youtube-video-downloader-lyart.vercel.app/" //* Vercel hostname
 // const host = "http://127.0.0.1:5000/" //* DEBUG Localhost hostname
 const urlBox = document.querySelector("#videoURL");
 const getVidBtn = document.querySelector("#get-video-info-btn");
