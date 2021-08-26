@@ -1,9 +1,10 @@
-// const host = "https://youtubevid-downloader.herokuapp.com/"   //* Heroku hostname
-const host = "https://youtube-video-downloader-lyart.vercel.app/" //* Vercel hostname
-// const host = "http://127.0.0.1:5000/" //* DEBUG Localhost hostname
+const host = location.protocol + '//' + location.host + "/";
 const urlBox = document.querySelector("#videoURL");
 const getVidBtn = document.querySelector("#get-video-info-btn");
 const defaultPlaceholder = "https://www.youtube.com/watch?v=video_id_here"
+
+// var host_ = window.location.host; 
+console.log(host);
 
 getVidBtn.addEventListener("click", () => {
     let videoURL = urlBox.value.trim();
