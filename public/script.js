@@ -1,18 +1,8 @@
-// const host = location.protocol + '//' + location.host + "/" + process.env.port;
-const hUrl = window.location.href
-var arr = hUrl.split("/");
-var host = arr[0] + "//" + arr[2] + "/";
-if (!host.includes(":")) {
-    host = host.slice(0, -1);
-    host += ":5000/"
-} 
-
+const host = "https://youtubevid-downloader.herokuapp.com/"   //* Heroku hostname
+// const host = "http://127.0.0.1:5000/" //* DEBUG Localhost hostname
 const urlBox = document.querySelector("#videoURL");
 const getVidBtn = document.querySelector("#get-video-info-btn");
 const defaultPlaceholder = "https://www.youtube.com/watch?v=video_id_here"
-
-// var host_ = window.location.host; 
-console.log(host);
 
 getVidBtn.addEventListener("click", () => {
     let videoURL = urlBox.value.trim();
