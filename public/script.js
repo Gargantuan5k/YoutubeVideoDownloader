@@ -1,7 +1,11 @@
 // const host = location.protocol + '//' + location.host + "/" + process.env.port;
 const hUrl = window.location.href
 var arr = hUrl.split("/");
-const host = arr[0] + "//" + arr[2] + "/";
+var host = arr[0] + "//" + arr[2] + "/";
+if (!host.includes(":")) {
+    host = host.slice(0, -1);
+    host += ":5000/"
+} 
 
 const urlBox = document.querySelector("#videoURL");
 const getVidBtn = document.querySelector("#get-video-info-btn");
