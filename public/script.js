@@ -1,4 +1,8 @@
-const host = location.protocol + '//' + location.host + "/";
+// const host = location.protocol + '//' + location.host + "/" + process.env.port;
+const hUrl = window.location.href
+var arr = hUrl.split("/");
+const host = arr[0] + "//" + arr[2] + "/";
+
 const urlBox = document.querySelector("#videoURL");
 const getVidBtn = document.querySelector("#get-video-info-btn");
 const defaultPlaceholder = "https://www.youtube.com/watch?v=video_id_here"
